@@ -70,6 +70,7 @@
 			if (data.action == google.picker.Action.PICKED) {
 				// If user selects the file, get the file ID
 				var fileId = data.docs[0].id;
+				console.log(data.docs[0]);
 				downloadFile(fileId);
 				// alert('The user selected: ' + fileId);
 			}
