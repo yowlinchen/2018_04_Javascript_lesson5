@@ -34,6 +34,34 @@
 			// 把處理完的像素資料放回 canvas 裡面
 			ctx.putImageData(pixels, 0, 0);
 		}
+
+		function openFile() {
+
+		}
+		// Client ID and API key from the Developer Console
+		const CLIENT_ID = '29773440921-e11j5cgf836gvbe97566pbf3picnomn5.apps.googleusercontent.com';
+		const API_KEY = 'AIzaSyDTa07a0oJoJ2RD0xDGtodreaXmaqiH8fc';
+		// Give the maximum scopes 
+		const SCOPES = "https://www.googleapis.com/auth/drive";
+
+		function initGoogleAPI() {
+			gapi.load('client:auth2', initGoogleClient);
+		}
+
+		function initGoogleClient() {
+			gapi.client.init({
+				apiKey: API_KEY,
+				clientId: CLIENT_ID,
+				scope: SCOPES
+			}).then(function () {
+				var auth = gapi.auth2.getAuthInstance();
+				console.log("Auth object", auth);
+				console.log("Result", auth.isSignedIn.get());
+			});
+		}
+	</script>
+
+	<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};initGoogleAPI()">
 	</script>
 </head>
 
