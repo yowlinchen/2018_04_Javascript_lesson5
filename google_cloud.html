@@ -48,6 +48,7 @@
                 discoveryDocs: DISCOVERY_DOCS,
                 scope: SCOPES
             }).then(function () {
+                console.log("Auth Result:", gapi.auth2.getAuthInstance().isSignedIn.get());
                 // Listen for sign-in state changes.
                 gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
